@@ -1,0 +1,42 @@
+# Environment and secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# DataSpell
+.idea/
+
+# Data and Results (keep structure, ignore contents)
+data/*.db
+data/exports/*.csv
+data/exports/*.json
+results/charts/*.png
+results/charts/*.pdf
+results/reports/*.pdf
+
+# Distribution
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
