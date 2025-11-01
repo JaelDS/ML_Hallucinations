@@ -1,6 +1,6 @@
 """
 AI Agent for Hallucination Testing
-Handles interactions with OpenAI API and applies mitigation strategies
+Handles interactions with DeepSeek API and applies mitigation strategies
 """
 import time
 from typing import Dict, List, Optional, Tuple
@@ -19,20 +19,24 @@ class HallucinationTestAgent:
         Initialize the agent
 
         Args:
-            api_key: OpenAI API key (defaults to Config.OPENAI_API_KEY)
+            api_key: DeepSeek API key (defaults to Config.DEEPSEEK_API_KEY)
             model: Model name (defaults to Config.MODEL_NAME)
             temperature: Temperature setting (defaults to Config.TEMPERATURE)
             max_tokens: Max tokens (defaults to Config.MAX_TOKENS)
         """
-        self.api_key = api_key or Config.OPENAI_API_KEY
+        self.api_key = api_key or Config.DEEPSEEK_API_KEY
         self.model = model or Config.MODEL_NAME
         self.temperature = temperature if temperature is not None else Config.TEMPERATURE
         self.max_tokens = max_tokens or Config.MAX_TOKENS
 
         if not self.api_key:
-            raise ValueError("OpenAI API key not provided")
+            raise ValueError("DeepSeek API key not provided")
 
-        self.client = OpenAI(api_key=self.api_key)
+        # Initialize OpenAI client with DeepSeek base URL
+        self.client = OpenAI(
+            api_key=self.api_key,
+            base_url="https://api.deepseek.com"
+        )
 
     def query_baseline(self, prompt: str) -> Tuple[str, Dict]:
         """
@@ -305,4 +309,4 @@ if __name__ == "__main__":
         print(f"Metadata: {metadata}")
     except ValueError as e:
         print(f"Error: {e}")
-        print("Please set OPENAI_API_KEY in .env file")
+        print("Please set DEEPSEEK_API_KEY in .env file")
