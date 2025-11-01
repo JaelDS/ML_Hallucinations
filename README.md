@@ -4,10 +4,19 @@ A comprehensive study on **Large Language Model (LLM) hallucinations** with focu
 
 ## 📋 Project Overview
 
-This research project systematically tests and analyzes hallucinations in LLMs (ChatGPT) and evaluates the effectiveness of three mitigation strategies:
+This research project systematically tests and analyzes hallucinations in LLMs (Llama 3.1 via Groq) and evaluates the effectiveness of three mitigation strategies:
 - **RAG** (Retrieval-Augmented Generation)
 - **Constitutional AI** (Self-critique)
 - **Chain-of-Thought** (Step-by-step reasoning)
+
+### Why Groq?
+
+This project uses **Groq API** for completely free, unlimited LLM access:
+- ✅ **100% Free** - No credit card required, ever
+- ✅ **14,400 requests/day** - More than enough for extensive testing
+- ✅ **3.5M tokens/day** - Unlimited for this research project
+- ✅ **Ultra-fast inference** - Industry-leading speed
+- ✅ **OpenAI-compatible** - Easy integration with standard libraries
 
 ### Research Goals
 
@@ -50,8 +59,8 @@ ML_Hallucinations/
 
 ### Prerequisites
 
-- Python 3.8+
-- OpenAI API key
+- Python 3.11.3
+- Groq API key (free, no credit card required)
 - DataSpell or Jupyter environment
 
 ### Installation
@@ -62,18 +71,30 @@ git clone <your-repo-url>
 cd ML_Hallucinations
 ```
 
-2. **Install dependencies**
+2. **Create virtual environment** (Windows/DataSpell)
 ```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+3. **Install dependencies**
+```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-3. **Configure environment**
+4. **Get free Groq API key**
+   - Go to: https://console.groq.com/
+   - Sign up (free, no credit card needed)
+   - Create API key
+
+5. **Configure environment**
 ```bash
 cp .env.example .env
-# Edit .env and add your OpenAI API key
+# Edit .env and add your Groq API key
 ```
 
-4. **Run setup notebook**
+6. **Run setup notebook**
 Open `notebooks/00_setup_and_installation.ipynb` in DataSpell and run all cells to verify setup.
 
 ## 📊 Workflow
@@ -199,7 +220,7 @@ db.export_to_csv(experiment_id)
 ## 🎓 Learning Outcomes
 
 ### Technical Skills
-- ✅ LLM API integration (OpenAI)
+- ✅ LLM API integration (Groq/Llama 3.1)
 - ✅ SQLite database design and management
 - ✅ RAG architecture implementation
 - ✅ Vector databases (ChromaDB)
@@ -259,12 +280,18 @@ response, metadata = agent.query_with_rag(prompt, context_docs)
 
 Edit `.env` file:
 ```bash
-OPENAI_API_KEY=sk-your-key-here
-MODEL_NAME=gpt-3.5-turbo    # or gpt-4
+GROQ_API_KEY=gsk-your-key-here
+MODEL_NAME=llama-3.1-8b-instant    # Fast, good quality (default)
+# Other options: llama-3.1-70b-versatile, mixtral-8x7b-32768
 TEMPERATURE=0.7
 MAX_TOKENS=500
 DATABASE_PATH=data/hallucinations.db
 ```
+
+### Available Groq Models:
+- **llama-3.1-8b-instant** - Fast inference, good quality (recommended)
+- **llama-3.1-70b-versatile** - Better quality, slower
+- **mixtral-8x7b-32768** - Large context window (32k tokens)
 
 ## 📚 References
 
