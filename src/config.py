@@ -5,9 +5,6 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
 class Config:
     """Central configuration class"""
 
@@ -67,6 +64,18 @@ class Config:
         (cls.DATA_DIR / "exports").mkdir(exist_ok=True)
 
         return True
+
+# Load environment variables from .env file in project root
+env_path = Config.PROJECT_ROOT / '.env'
+load_dotenv(dotenv_path=env_path)
+
+# Reload environment variables after loading .env
+Config.GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+Config.MODEL_NAME = os.getenv("MODEL_NAME", "llama-3.1-8b-instant")
+Config.TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
+Config.MAX_TOKENS = int(os.getenv("MAX_TOKENS", "500"))
+Config.DATABASE_PATH = os.getenv("DATABASE_PATH", str(Config.DATA_DIR / "hallucinations.db"))
+Config.LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
 # Validate on import
 if __name__ != "__main__":
