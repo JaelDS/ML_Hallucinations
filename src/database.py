@@ -264,6 +264,10 @@ class HallucinationDB:
             df = pd.read_sql_query(query, self.conn)
             filename = output_path or "data/exports/all_experiments.csv"
 
+        # Ensure directory exists
+        from pathlib import Path
+        Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
         df.to_csv(filename, index=False)
         return filename
 
