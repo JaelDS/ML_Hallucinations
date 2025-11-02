@@ -20,9 +20,9 @@ class Config:
     # Database
     DATABASE_PATH = os.getenv("DATABASE_PATH", str(DATA_DIR / "hallucinations.db"))
 
-    # DeepSeek API
-    DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-    MODEL_NAME = os.getenv("MODEL_NAME", "deepseek-chat")
+    # Groq API
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    MODEL_NAME = os.getenv("MODEL_NAME", "llama-3.1-8b-instant")
     TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
     MAX_TOKENS = int(os.getenv("MAX_TOKENS", "500"))
 
@@ -55,8 +55,8 @@ class Config:
     @classmethod
     def validate(cls):
         """Validate configuration"""
-        if not cls.DEEPSEEK_API_KEY:
-            raise ValueError("DEEPSEEK_API_KEY not set. Please create .env file from .env.example")
+        if not cls.GROQ_API_KEY:
+            raise ValueError("GROQ_API_KEY not set. Please create .env file from .env.example")
 
         # Create directories if they don't exist
         cls.DATA_DIR.mkdir(exist_ok=True)
