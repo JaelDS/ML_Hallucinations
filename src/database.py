@@ -251,9 +251,18 @@ class HallucinationDB:
     def export_to_csv(self, experiment_id: Optional[int] = None,
                      output_path: Optional[str] = None):
         """Export data to CSV"""
+        # Get project root directory (parent of src directory)
+        project_root = Path(__file__).parent.parent
+
         if experiment_id:
             df = self.get_experiment_results(experiment_id)
-            filename = output_path or f"data/exports/experiment_{experiment_id}.csv"
+            if output_path:
+                filename = output_path
+            else:
+                # Use absolute path from project root
+                export_dir = project_root / "data" / "exports"
+                export_dir.mkdir(parents=True, exist_ok=True)
+                filename = str(export_dir / f"experiment_{experiment_id}.csv")
         else:
             query = """
                 SELECT * FROM experiments e
@@ -262,7 +271,13 @@ class HallucinationDB:
                 JOIN hallucinations h ON r.response_id = h.response_id
             """
             df = pd.read_sql_query(query, self.conn)
-            filename = output_path or "data/exports/all_experiments.csv"
+            if output_path:
+                filename = output_path
+            else:
+                # Use absolute path from project root
+                export_dir = project_root / "data" / "exports"
+                export_dir.mkdir(parents=True, exist_ok=True)
+                filename = str(export_dir / "all_experiments.csv")
 
         # Ensure directory exists
         from pathlib import Path
