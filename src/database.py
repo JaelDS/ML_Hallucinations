@@ -279,6 +279,10 @@ class HallucinationDB:
                 export_dir.mkdir(parents=True, exist_ok=True)
                 filename = str(export_dir / "all_experiments.csv")
 
+        # Ensure directory exists
+        from pathlib import Path
+        Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
         df.to_csv(filename, index=False)
         return filename
 
