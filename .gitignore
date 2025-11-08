@@ -25,6 +25,7 @@ __pycache__/
 
 # Data and Results (keep structure, ignore contents)
 data/*.db
+notebooks/data/*.db
 data/exports/*.csv
 data/exports/*.json
 results/charts/*.png
