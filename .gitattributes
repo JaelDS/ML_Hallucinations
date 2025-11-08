@@ -1,0 +1,3 @@
+# Jupyter Notebooks
+*.ipynb merge=nbdime-merge
+*.ipynb diff=nbdime-diff
