@@ -1,0 +1,5 @@
+mitigation_strategy,Total Tests,Hallucinations,Hallucination Rate,Avg Response Time (ms),Avg Tokens,Hallucination Rate (%)
+baseline,74,16,0.21621621621621623,379.534,164.43243243243242,21.62
+chain_of_thought,48,0,0.0,1766.212,577.1458333333334,0.0
+constitutional_ai,48,0,0.0,4933.553,1146.9166666666667,0.0
+rag,48,0,0.0,343.132,370.4583333333333,0.0

@@ -1,0 +1,76 @@
+================================================================================
+ML HALLUCINATION RESEARCH - STATISTICAL SUMMARY
+================================================================================
+
+Total Experiments Conducted: 22
+Total Tests Performed: 218
+Data Collection Period: 2025-11-02 07:38:59 to 2025-11-08 11:32:59
+
+================================================================================
+MITIGATION STRATEGY EFFECTIVENESS
+================================================================================
+
+BASELINE:
+  • Total Tests: 74
+  • Hallucinations Detected: 16
+  • Hallucination Rate: 21.62%
+  • Avg Response Time: 380ms
+  • Avg Token Usage: 164 tokens
+
+CHAIN OF THOUGHT:
+  • Total Tests: 48
+  • Hallucinations Detected: 0
+  • Hallucination Rate: 0.0%
+  • Avg Response Time: 1766ms
+  • Avg Token Usage: 577 tokens
+
+CONSTITUTIONAL AI:
+  • Total Tests: 48
+  • Hallucinations Detected: 0
+  • Hallucination Rate: 0.0%
+  • Avg Response Time: 4934ms
+  • Avg Token Usage: 1147 tokens
+
+RAG:
+  • Total Tests: 48
+  • Hallucinations Detected: 0
+  • Hallucination Rate: 0.0%
+  • Avg Response Time: 343ms
+  • Avg Token Usage: 370 tokens
+
+================================================================================
+IMPROVEMENT OVER BASELINE
+================================================================================
+
+CHAIN OF THOUGHT:
+  • Absolute Reduction: 21.6 percentage points
+  • Relative Improvement: 100.0%
+
+CONSTITUTIONAL AI:
+  • Absolute Reduction: 21.6 percentage points
+  • Relative Improvement: 100.0%
+
+RAG:
+  • Absolute Reduction: 21.6 percentage points
+  • Relative Improvement: 100.0%
+
+================================================================================
+TOP HALLUCINATION-PRONE CATEGORIES
+================================================================================
+
+1. Confabulation
+   Rate: 100.0% (2/2 tests)
+
+2. Fabricated Event
+   Rate: 100.0% (1/1 tests)
+
+3. Factual Error
+   Rate: 100.0% (1/1 tests)
+
+4. Nonsensical
+   Rate: 100.0% (1/1 tests)
+
+5. Technical Confusion
+   Rate: 100.0% (1/1 tests)
+
+================================================================================
