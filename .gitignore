@@ -28,6 +28,7 @@ data/*.db
 notebooks/data/*.db
 data/exports/*.csv
 data/exports/*.json
+notebooks/data/*.db
 results/charts/*.png
 results/charts/*.pdf
 results/reports/*.pdf
